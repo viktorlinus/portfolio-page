@@ -38,13 +38,16 @@ const Navbar = () => {
           href="/" 
           className="text-2xl font-bold text-primary"
         >
-          Portfolio
+          Eken Consulting
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="font-medium hover:text-primary transition-colors">
             Hem
+          </Link>
+          <Link href="#idea-to-reality" className="font-medium hover:text-primary transition-colors">
+            Min Process
           </Link>
           <Link href="#about-services" className="font-medium hover:text-primary transition-colors">
             Tjänster
@@ -106,6 +109,13 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Hem
+            </Link>
+            <Link
+              href="#idea-to-reality"
+              className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Min Process
             </Link>
             <Link
               href="#about-services"

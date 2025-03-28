@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Poppins, Roboto } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { GlobalSpotlight } from '@/components/ui/global-spotlight'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -34,7 +35,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <GlobalSpotlight size={600} strength={0.3} initialOpacity={0.4} maxOpacity={0.8}>
+            {children}
+          </GlobalSpotlight>
         </ThemeProvider>
       </body>
     </html>

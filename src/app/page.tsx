@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
+import IdeaToReality from "@/components/idea-to-reality"
 import AboutServices from "@/components/about-services"
 import ProjectGrid from "@/components/project-grid"
 import TestimonialsSection from "@/components/testimonials-section"
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <IdeaToReality />
       <AboutServices />
       <ProjectGrid />
       <TestimonialsSection />

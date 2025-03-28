@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { projects } from "@/lib/projects-data"
-import ProjectCard from "@/components/project-card"
+import ProjectCardSimple from "@/components/project-card-simple"
 
 const ProjectGrid = () => {
   const container = {
@@ -41,7 +41,7 @@ const ProjectGrid = () => {
             .filter(project => !project.hidden)
             .map((project) => (
               <motion.div key={project.id} variants={item}>
-                <ProjectCard project={project} />
+                <ProjectCardSimple project={project} />
               </motion.div>
             ))}
         </motion.div>

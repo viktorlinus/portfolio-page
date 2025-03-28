@@ -36,7 +36,7 @@ const AboutServices = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Jag Bygger Dina Idéer
+            Mina Specialkompetenser
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
