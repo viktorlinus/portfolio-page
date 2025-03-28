@@ -1,0 +1,9 @@
+Det här är en riktigt kort text om detta projektet:
+
+En next js webbplats för att highlighta mina kunskaper och mina projekt som jag har byggt.
+
+Det skall vara tydligt och säljande, fokus på bra seo. 
+
+Hemsidan följer en tydlig design som måste beskrivas. 
+
+Målet är att folk skall hitta sidan och sen kontakta mig för jobb. 
