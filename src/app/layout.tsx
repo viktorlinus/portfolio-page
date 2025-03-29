@@ -17,8 +17,13 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Mina Projekt',
-  description: 'Utforska mina senaste teknologiska lösningar och verktyg.',
+  title: 'Eken Consulting',
+  description: 'Skalbara, intelligenta tekniska lösningar för ditt företag',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

@@ -154,7 +154,8 @@ const ContactForm = () => {
             
             <Button 
               type="submit" 
-              className="w-full"
+              size="lg"
+              className="w-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Skickar..." : "Skicka Meddelande"}

@@ -8,6 +8,7 @@ import WorkflowAutomationCard from "@/components/services/workflow-automation-ca
 import DatabaseBackendCard from "@/components/services/database-backend-card"
 import DataAnalyticsCard from "@/components/services/data-analytics-card"
 import SEOVisibilityCard from "@/components/services/seo-visibility-card"
+import { Button } from "@/components/ui/button"
 
 const AboutServices = () => {
   const container = {
@@ -93,12 +94,13 @@ const AboutServices = () => {
           <p className="text-lg font-medium mb-6">
             Har du en idé eller ett problem som behöver en teknisk lösning?
           </p>
-          <a 
-            href="#contact" 
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          <Button
+            size="xxl"
+            asChild
+            className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 mt-4 border-primary"
           >
-            Kontakta mig
-          </a>
+            <a href="#contact">Kontakta mig</a>
+          </Button>
         </motion.div>
       </div>
     </section>

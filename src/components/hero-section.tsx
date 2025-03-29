@@ -5,13 +5,20 @@ import { AnimatedText } from "@/components/ui/animated-text"
 import { MovingGradient } from "@/components/ui/moving-gradient"
 import { GlitchText } from "@/components/ui/glitch-text"
 import { FlowingBackground } from "@/components/ui/flowing-background"
+import { ChevronDown } from "lucide-react"
 
 const HeroSection = () => {
   const scrollToIdea = () => {
     // Hitta IdeaToReality-sektionen
     const ideaSection = document.getElementById("idea-to-reality")
     if (ideaSection) {
-      ideaSection.scrollIntoView({ behavior: "smooth" })
+      // Beräkna position med offset för att ge mer utrymme
+      const offset = 60; // pixel offset, justera vid behov
+      const ideaPosition = ideaSection.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({
+        top: ideaPosition,
+        behavior: "smooth"
+      })
     }
   }
 
@@ -44,13 +51,22 @@ const HeroSection = () => {
           </div>
           
           <Button 
-            size="lg" 
+            size="xxl" 
             onClick={scrollToIdea}
-            className="text-base md:text-lg relative overflow-hidden group"
+            className="relative overflow-hidden group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-primary"
           >
             <span className="relative z-10">Utforska möjligheterna</span>
             <span className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
           </Button>
+          
+          {/* Scroll indicator */}
+          <div 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse cursor-pointer mt-16"
+            onClick={scrollToIdea}
+          >
+            <span className="text-sm text-muted-foreground mb-1">Scrolla ner</span>
+            <ChevronDown className="w-6 h-6 text-primary" />
+          </div>
         </div>
       </MovingGradient>
       {/* Closing tag for FlowingBackground disabled

@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: "Second hand-butik för barnkläder med rättvis ersättning och digital spårning.",
     fullDescription: "Lilleman & Jag är en innovativ second hand-butik för barnkläder som planerar att öppna i Borås sommaren 2025. Projektet innehåller en modern webbplats med registreringsformulär där föräldrar kan registrera sig som inlämnare av barnkläder. Webbplatsen är byggd med fokus på användarupplevelse, SEO och konvertering, tillsammans med automatiserade flöden i n8n för att hantera inlämnarregistreringar och nyhetsbrevsprenumerationer.",
     imageSrc: "/lillemanochjag.jpg",
-    technologies: ["Next.js", "n8n", "SEO-optimering", "Tailwind CSS", "Automatiserade flöden"],
+    technologies: ["Next.js", "n8n", "SEO-optimering", "Automatiserade flöden"],
     features: [
       "Integrerat n8n-system för automatiserad hantering av registreringar",
       "Konverteringsoptimerad formulärdesign med vägledande UX-element",

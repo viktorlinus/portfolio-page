@@ -4,6 +4,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { LightbulbIcon, RocketIcon, HeartIcon } from "lucide-react"
 import IdeaCard from "./idea-card"
+import { Button } from "@/components/ui/button"
 
 const IdeaToReality = () => {
   return (
@@ -72,12 +73,13 @@ const IdeaToReality = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <a 
-            href="#contact" 
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          <Button
+            size="xxl"
+            asChild
+            className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 mt-4 border-primary"
           >
-            Berätta om din idé
-          </a>
+            <a href="#contact">Berätta om din idé</a>
+          </Button>
         </motion.div>
       </div>
     </section>

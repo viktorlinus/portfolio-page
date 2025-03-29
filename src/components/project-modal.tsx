@@ -60,9 +60,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
         
         <div className="mt-4">
           {/* Icon Container */}
-          <div className="h-40 w-full bg-primary/5 flex items-center justify-center mb-6 rounded-md">
-            {getProjectIcon(project.iconType)}
-          </div>
+          
           
           <div className="mb-6">
             <h3 className="text-lg font-bold mb-2">Om projektet</h3>

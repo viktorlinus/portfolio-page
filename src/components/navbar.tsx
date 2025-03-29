@@ -9,6 +9,25 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  const scrollToIdeaSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const ideaSection = document.getElementById("idea-to-reality")
+    if (ideaSection) {
+      // Stäng mobilmenyn om den är öppen
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+      
+      const offset = 60
+      const ideaPosition = ideaSection.getBoundingClientRect().top + window.pageYOffset - offset
+      
+      window.scrollTo({
+        top: ideaPosition,
+        behavior: "smooth"
+      })
+    }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -46,9 +65,13 @@ const Navbar = () => {
           <Link href="/" className="font-medium hover:text-primary transition-colors">
             Hem
           </Link>
-          <Link href="#idea-to-reality" className="font-medium hover:text-primary transition-colors">
+          <a 
+            href="#idea-to-reality" 
+            className="font-medium hover:text-primary transition-colors cursor-pointer"
+            onClick={scrollToIdeaSection}
+          >
             Min Process
-          </Link>
+          </a>
           <Link href="#about-services" className="font-medium hover:text-primary transition-colors">
             Tjänster
           </Link>
@@ -110,13 +133,13 @@ const Navbar = () => {
             >
               Hem
             </Link>
-            <Link
+            <a
               href="#idea-to-reality"
-              className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-2 hover:bg-muted rounded-md transition-colors cursor-pointer"
+              onClick={scrollToIdeaSection}
             >
               Min Process
-            </Link>
+            </a>
             <Link
               href="#about-services"
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
