@@ -16,6 +16,7 @@ export type Project = {
     description: string;
     fullDescription: string;
     features: string[];
+    technologies?: string[]; // Added technologies for translations
   }
 };
 
@@ -47,7 +48,8 @@ export const projects: Project[] = [
         "Advanced SEO implementation with schema markup and metadata",
         "Responsive design with Tailwind CSS for all screen sizes",
         "Integrated webhooks for data handling and follow-up communication"
-      ]
+      ],
+      technologies: ["Next.js", "n8n", "SEO optimization", "Automated workflows"]
     }
   },
   {
@@ -77,7 +79,8 @@ export const projects: Project[] = [
         "Dietary preference filters for special diets",
         "Save favorite recipes",
         "Save shopping list with items on sale"
-      ]
+      ],
+      technologies: ["Next.js", "OpenAI", "n8n", "Supabase", "Tailwind CSS"]
     }
   },
   {
@@ -107,7 +110,8 @@ export const projects: Project[] = [
         "Semantic search in previous conversations",
         "Database queries",
         "Expandable platform for future features"
-      ]
+      ],
+      technologies: ["n8n", "Telegram API", "Semantic search", "Database"]
     }
   },
   {
@@ -135,7 +139,8 @@ export const projects: Project[] = [
         "Historical price charts",
         "Customizable tools",
         "Caching of chart data"
-      ]
+      ],
+      technologies: ["Next.js", "Supabase", "Chart.js", "Crypto APIs"]
     }
   },
   {
@@ -166,7 +171,8 @@ export const projects: Project[] = [
         "Integration with existing order systems",
         "Handling of special orders",
         "Order confirmations via SMS"
-      ]
+      ],
+      technologies: ["Telephony API", "Speech-to-Text", "Text-to-Speech", "Restaurant CRM"]
     }
   },
   {
@@ -183,10 +189,10 @@ export const projects: Project[] = [
       "Integration med CRM-system",
       "Flerspråkigt stöd"
     ],
-    projectUrl: "https://ai-chat-agent.example.com",
+    projectUrl: "",
     icon: "💬",
     iconType: "message",
-    hidden: true,
+    hidden: false,
     en: {
       title: "AI Chat Agent for Business",
       description: "Chatbot that sorts and qualifies leads and answers general questions.",
@@ -197,7 +203,8 @@ export const projects: Project[] = [
         "Knowledge base with RAG technology",
         "Integration with CRM systems",
         "Multilingual support"
-      ]
+      ],
+      technologies: ["RAG", "Vector database", "Embeddings", "API integrations"]
     }
   }
 ];
@@ -210,7 +217,8 @@ export const getProjectData = (project: Project, lang: string = 'sv') => {
       title: project.en.title,
       description: project.en.description,
       fullDescription: project.en.fullDescription,
-      features: project.en.features
+      features: project.en.features,
+      technologies: project.en.technologies || project.technologies // Use translated technologies if available
     };
   }
   return project;
