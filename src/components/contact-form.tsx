@@ -51,13 +51,17 @@ const ContactForm = ({
       name: "Namn",
       email: "E-post",
       subject: "Ämne",
-      message: "Meddelande"
+      message: "Meddelande",
+      messageSent: "Meddelande skickat!",
+      error: "Något gick fel"
     },
     en: {
       name: "Name",
       email: "Email",
       subject: "Subject",
-      message: "Message"
+      message: "Message",
+      messageSent: "Message sent!",
+      error: "Something went wrong"
     }
   };
   
@@ -87,7 +91,7 @@ const ContactForm = ({
 
       if (response.ok) {
         toast({
-          title: "Meddelande skickat!",
+          title: l.messageSent,
           description: successMessage,
           variant: "default",
         })
@@ -102,7 +106,7 @@ const ContactForm = ({
       }
     } catch (error) {
       toast({
-        title: "Något gick fel",
+        title: l.error,
         description: errorMessage,
         variant: "destructive",
       })
