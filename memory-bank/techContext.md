@@ -1,5 +1,13 @@
 # Technical Context
 
+## Internationalization Tools and Libraries
+- **Built-in Next.js features**: Dynamic routes, middleware, and metadata support
+- **Server components**: For efficient loading of language-specific content
+- **Client components**: For interactive language switching
+- **JSON translation files**: Simple, maintainable structure for multilingual content
+- **hreflang tags**: For proper SEO across language variants
+- **Dynamic sitemap generation**: For complete language-specific SEO
+
 ## Core Technologies
 - **Next.js**: React framework for production-ready websites with server-side rendering and static site generation
 - **TypeScript**: For type safety and improved development experience

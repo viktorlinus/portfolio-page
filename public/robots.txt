@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ekenconsulting.se/sitemap.xml
+Sitemap: https://eken-consulting.netlify.app/sitemap.xml

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { LucideChevronDown, LucideChevronUp } from "lucide-react"
@@ -16,6 +16,10 @@ interface ServiceCardBaseProps {
     title: string;
     description: string;
   };
+  expandText?: string;
+  collapseText?: string;
+  servicesListTitle?: string;
+  projectExampleTitle?: string;
 }
 
 const ServiceCardBase = ({
@@ -25,7 +29,11 @@ const ServiceCardBase = ({
   icon,
   servicesList,
   fullDescription,
-  projectExample
+  projectExample,
+  expandText = "Läs mer",
+  collapseText = "Visa mindre",
+  servicesListTitle = "Jag kan hjälpa dig med:",
+  projectExampleTitle = "Projektexempel:"
 }: ServiceCardBaseProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
@@ -74,7 +82,7 @@ const ServiceCardBase = ({
             </p>
             
             <div className="mt-4">
-              <p className="text-sm font-medium mb-2">Jag kan hjälpa dig med:</p>
+              <p className="text-sm font-medium mb-2">{servicesListTitle}</p>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 {servicesList.map((service, index) => (
                   <li key={index}>• {service}</li>
@@ -84,7 +92,7 @@ const ServiceCardBase = ({
             
             {projectExample && (
               <div className="mt-4 p-3 bg-muted/50 rounded-md">
-                <h4 className="text-sm font-medium mb-2">Projektexempel: {projectExample.title}</h4>
+                <h4 className="text-sm font-medium mb-2">{projectExampleTitle} {projectExample.title}</h4>
                 <p className="text-xs text-muted-foreground">
                   {projectExample.description}
                 </p>
@@ -97,7 +105,7 @@ const ServiceCardBase = ({
         <div 
           className="mt-4 flex items-center justify-center cursor-pointer hover:text-primary transition-colors"
         >
-          <span className="text-sm mr-1">{isExpanded ? "Visa mindre" : "Läs mer"}</span>
+          <span className="text-sm mr-1">{isExpanded ? collapseText : expandText}</span>
           {isExpanded ? 
             <LucideChevronUp className="h-4 w-4" /> : 
             <LucideChevronDown className="h-4 w-4" />

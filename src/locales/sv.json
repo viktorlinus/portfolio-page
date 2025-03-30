@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "Jag Bygger Dina Idéer",
+    "subtitle": "Skalbara, intelligenta tekniska lösningar för ditt företag",
+    "cta": "Utforska möjligheterna",
+    "scrollText": "Scrolla ner"
+  },
+  "nav": {
+    "home": "Hem",
+    "process": "Min Process",
+    "services": "Tjänster",
+    "projects": "Projekt",
+    "testimonials": "Referenser",
+    "contact": "Kontakt"
+  },
+  "process": {
+    "title": "Från Idé till Verklighet",
+    "subtitle": "Har du en idé som du vill se växa? Jag hjälper dig göra den till verklighet.",
+    "steps": [
+      {
+        "title": "Din Idé",
+        "description": "Allt börjar med din vision. Vi diskuterar dina mål, behov och önskemål för att forma idén."
+      },
+      {
+        "title": "Utveckling",
+        "description": "Jag omsätter idén till kod med modern teknik som ger skalbarhet och prestanda."
+      },
+      {
+        "title": "Resultat",
+        "description": "En färdig lösning som gör din idé till verklighet, med fokus på användarvänlighet och kvalitet."
+      }
+    ],
+    "ctaText": "Berätta om din idé"
+  },
+  "services": {
+    "title": "Mina Specialkompetenser",
+    "subtitle": "Med en bakgrund i modern webbutveckling, AI-integration och automatisering hjälper jag dig att transformera dina idéer till skalbara, intelligenta lösningar. Mitt fokus ligger på att kombinera teknisk innovation med praktisk användbarhet.",
+    "items": [
+      {
+        "title": "Webbapplikationer",
+        "description": "Moderna webbapplikationer byggda med React och Next.js"
+      },
+      {
+        "title": "Backend-system",
+        "description": "Robusta backend-lösningar med Node.js och databaser"
+      },
+      {
+        "title": "Responsiv Design",
+        "description": "Användarvänliga gränssnitt som fungerar på alla enheter"
+      }
+    ],
+    "question": "Har du en idé eller ett problem som behöver en teknisk lösning?",
+    "ctaText": "Kontakta mig"
+  },
+  "projects": {
+    "title": "Mina Projekt",
+    "subtitle": "Här är ett urval av teknologiska lösningar och verktyg jag har utvecklat.",
+    "viewProject": "Mer Information",
+    "technologies": "Teknologier"
+  },
+  "testimonials": {
+    "title": "Vad Kunderna Säger",
+    "subtitle": "Läs vad mina kunder och samarbetspartners har att säga om mina projekt."
+  },
+  "contact": {
+    "title": "Kontakta Mig",
+    "subtitle": "Har du ett projekt i åtanke eller vill du veta mer om mina tjänster? Skicka ett meddelande så återkommer jag så snart som möjligt.",
+    "name": "Namn",
+    "email": "E-post",
+    "subject": "Ämne",
+    "subjectPlaceholder": "Vad gäller ditt meddelande?",
+    "message": "Meddelande",
+    "messagePlaceholder": "Beskriv ditt ärende",
+    "send": "Skicka Meddelande",
+    "sending": "Skickar...",
+    "success": "Meddelandet har skickats. Jag återkommer så snart som möjligt.",
+    "error": "Ett fel uppstod. Försök igen senare."
+  },
+  "footer": {
+    "aboutTitle": "Om Mig",
+    "aboutText": "Jag är en utvecklare med passion för innovativa teknologiska lösningar som förenklar människors vardag.",
+    "contactTitle": "Kontakt",
+    "location": "Borås, Sverige",
+    "socialTitle": "Sociala Medier",
+    "copyright": "© 2025 Eken Consulting. Alla rättigheter förbehållna."
+  }
+}

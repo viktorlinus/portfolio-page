@@ -3,9 +3,30 @@
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
+import { LanguageSwitcher } from "./language-switcher"
 import { cn } from "@/lib/utils"
 
-const Navbar = () => {
+interface NavbarProps {
+  lang?: string
+  dictionary?: {
+    home: string
+    process: string
+    services: string
+    projects: string
+    contact: string
+  }
+}
+
+const Navbar = ({
+  lang = "sv",
+  dictionary = {
+    home: "Hem",
+    process: "Min Process",
+    services: "Tjänster",
+    projects: "Projekt",
+    contact: "Kontakt"
+  }
+}: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -54,7 +75,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link 
-          href="/" 
+          href={`/${lang}`} 
           className="text-2xl font-bold text-primary"
         >
           Eken Consulting
@@ -62,33 +83,46 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="font-medium hover:text-primary transition-colors">
-            Hem
+          <Link 
+            href={`/${lang}`} 
+            className="font-medium hover:text-primary transition-colors"
+          >
+            {dictionary.home}
           </Link>
           <a 
             href="#idea-to-reality" 
             className="font-medium hover:text-primary transition-colors cursor-pointer"
             onClick={scrollToIdeaSection}
           >
-            Min Process
+            {dictionary.process}
           </a>
-          <Link href="#about-services" className="font-medium hover:text-primary transition-colors">
-            Tjänster
+          <Link 
+            href="#about-services" 
+            className="font-medium hover:text-primary transition-colors"
+          >
+            {dictionary.services}
           </Link>
-          <Link href="#projects" className="font-medium hover:text-primary transition-colors">
-            Projekt
+          <Link 
+            href="#projects" 
+            className="font-medium hover:text-primary transition-colors"
+          >
+            {dictionary.projects}
           </Link>
-          <Link href="#testimonials" className="font-medium hover:text-primary transition-colors">
-            Referenser
+          <Link 
+            href="#contact" 
+            className="font-medium hover:text-primary transition-colors"
+          >
+            {dictionary.contact}
           </Link>
-          <Link href="#contact" className="font-medium hover:text-primary transition-colors">
-            Kontakt
-          </Link>
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Mobile Navigation Button */}
         <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -127,46 +161,39 @@ const Navbar = () => {
         <div className="md:hidden bg-background border-b shadow-lg">
           <div className="container mx-auto py-4 flex flex-col gap-4">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Hem
+              {dictionary.home}
             </Link>
             <a
               href="#idea-to-reality"
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors cursor-pointer"
               onClick={scrollToIdeaSection}
             >
-              Min Process
+              {dictionary.process}
             </a>
             <Link
               href="#about-services"
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Tjänster
+              {dictionary.services}
             </Link>
             <Link
               href="#projects"
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Projekt
-            </Link>
-            <Link
-              href="#testimonials"
-              className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Referenser
+              {dictionary.projects}
             </Link>
             <Link
               href="#contact"
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Kontakt
+              {dictionary.contact}
             </Link>
           </div>
         </div>

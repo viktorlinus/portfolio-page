@@ -1,5 +1,6 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import { type Project } from "@/lib/projects-data"
 import { Button } from "@/components/ui/button"
 import {
@@ -29,6 +30,31 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
+  const pathname = usePathname();
+  const lang = pathname?.split('/')[1] || 'sv';
+  
+  // Translated text based on language
+  const translations = {
+    sv: {
+      aboutProject: "Om projektet",
+      features: "Funktioner",
+      technologies: "Teknologier",
+      visitProject: "Besök Projektet",
+      close: "Stäng",
+      contactMe: "Kontakta mig"
+    },
+    en: {
+      aboutProject: "About the project",
+      features: "Features",
+      technologies: "Technologies",
+      visitProject: "Visit Project",
+      close: "Close",
+      contactMe: "Contact me"
+    }
+  };
+  
+  const t = translations[lang === 'en' ? 'en' : 'sv'];
+  
   // Funktion för att returnera rätt ikon baserat på projektets ikontyp
   const getProjectIcon = (iconType: string) => {
     switch (iconType) {
@@ -48,6 +74,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
         return <LucideCode className="w-16 h-16 text-primary" />;
     }
   }
+  
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
@@ -59,18 +86,15 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
         </DialogHeader>
         
         <div className="mt-4">
-          {/* Icon Container */}
-          
-          
           <div className="mb-6">
-            <h3 className="text-lg font-bold mb-2">Om projektet</h3>
+            <h3 className="text-lg font-bold mb-2">{t.aboutProject}</h3>
             <p className="text-muted-foreground">
               {project.fullDescription}
             </p>
           </div>
           
           <div className="mb-6">
-            <h3 className="text-lg font-bold mb-2">Funktioner</h3>
+            <h3 className="text-lg font-bold mb-2">{t.features}</h3>
             <ul className="list-disc pl-5 space-y-1">
               {project.features.map((feature, index) => (
                 <li key={index} className="text-muted-foreground">{feature}</li>
@@ -79,7 +103,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           </div>
           
           <div className="mb-6">
-            <h3 className="text-lg font-bold mb-2">Teknologier</h3>
+            <h3 className="text-lg font-bold mb-2">{t.technologies}</h3>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech, index) => (
                 <span
@@ -96,7 +120,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 className="w-full"
                 onClick={() => window.open(project.projectUrl, "_blank")}
               >
-                Besök Projektet
+                {t.visitProject}
               </Button>
             )}
           </div>
@@ -108,13 +132,13 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             onClick={onClose}
             className="mr-2"
           >
-            Stäng
+            {t.close}
           </Button>
           <Button onClick={() => {
             onClose();
             window.open("#contact", "_self");
           }}>
-            Kontakta mig
+            {t.contactMe}
           </Button>
         </DialogFooter>
       </DialogContent>

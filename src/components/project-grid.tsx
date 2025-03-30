@@ -4,7 +4,19 @@ import { motion } from "framer-motion"
 import { projects } from "@/lib/projects-data"
 import ProjectCardSimple from "@/components/project-card-simple"
 
-const ProjectGrid = () => {
+interface ProjectGridProps {
+  title?: string;
+  subtitle?: string;
+  viewProject?: string;
+  technologiesText?: string;
+}
+
+const ProjectGrid = ({
+  title = "Mina Projekt",
+  subtitle = "Här är ett urval av teknologiska lösningar och verktyg jag har utvecklat.",
+  viewProject = "Visa projekt",
+  technologiesText = "Teknologier"
+}: ProjectGridProps) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -24,9 +36,9 @@ const ProjectGrid = () => {
     <section id="projects" className="py-24 bg-muted/30">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Mina Projekt</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Här är ett urval av teknologiska lösningar och verktyg jag har utvecklat.
+            {subtitle}
           </p>
         </div>
 
@@ -41,7 +53,11 @@ const ProjectGrid = () => {
             .filter(project => !project.hidden)
             .map((project) => (
               <motion.div key={project.id} variants={item}>
-                <ProjectCardSimple project={project} />
+                <ProjectCardSimple 
+                  project={project} 
+                  viewProjectText={viewProject} 
+                  technologiesText={technologiesText}
+                />
               </motion.div>
             ))}
         </motion.div>

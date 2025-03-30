@@ -10,7 +10,26 @@ import DataAnalyticsCard from "@/components/services/data-analytics-card"
 import SEOVisibilityCard from "@/components/services/seo-visibility-card"
 import { Button } from "@/components/ui/button"
 
-const AboutServices = () => {
+interface Service {
+  title: string;
+  description: string;
+}
+
+interface AboutServicesProps {
+  title?: string;
+  subtitle?: string;
+  services?: Service[];
+  question?: string;
+  ctaText?: string;
+}
+
+const AboutServices = ({
+  title = "Mina Specialkompetenser",
+  subtitle = "Med en bakgrund i modern webbutveckling, AI-integration och automatisering hjälper jag dig att transformera dina idéer till skalbara, intelligenta lösningar. Mitt fokus ligger på att kombinera teknisk innovation med praktisk användbarhet.",
+  services = [],
+  question = "Har du en idé eller ett problem som behöver en teknisk lösning?",
+  ctaText = "Kontakta mig"
+}: AboutServicesProps) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -26,6 +45,16 @@ const AboutServices = () => {
     show: { y: 0, opacity: 1 }
   }
 
+  // Servicekomponenter
+  const serviceComponents = [
+    WebDevelopmentCard,
+    AIAutomationCard,
+    WorkflowAutomationCard,
+    DatabaseBackendCard,
+    DataAnalyticsCard,
+    SEOVisibilityCard
+  ];
+
   return (
     <section id="about-services" className="py-24">
       <div className="container px-4 md:px-6">
@@ -37,7 +66,7 @@ const AboutServices = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Mina Specialkompetenser
+            {title}
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
@@ -46,9 +75,7 @@ const AboutServices = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Med en bakgrund i modern webbutveckling, AI-integration och automatisering hjälper jag dig 
-            att transformera dina idéer till skalbara, intelligenta lösningar. Mitt fokus ligger på att 
-            kombinera teknisk innovation med praktisk användbarhet.
+            {subtitle}
           </motion.p>
         </div>
 
@@ -59,29 +86,11 @@ const AboutServices = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <motion.div variants={item}>
-            <WebDevelopmentCard />
-          </motion.div>
-          
-          <motion.div variants={item}>
-            <AIAutomationCard />
-          </motion.div>
-          
-          <motion.div variants={item}>
-            <WorkflowAutomationCard />
-          </motion.div>
-          
-          <motion.div variants={item}>
-            <DatabaseBackendCard />
-          </motion.div>
-          
-          <motion.div variants={item}>
-            <DataAnalyticsCard />
-          </motion.div>
-          
-          <motion.div variants={item}>
-            <SEOVisibilityCard />
-          </motion.div>
+          {serviceComponents.map((ServiceComponent, index) => (
+            <motion.div key={index} variants={item}>
+              <ServiceComponent />
+            </motion.div>
+          ))}
         </motion.div>
 
         <motion.div 
@@ -92,14 +101,14 @@ const AboutServices = () => {
           transition={{ duration: 0.5 }}
         >
           <p className="text-lg font-medium mb-6">
-            Har du en idé eller ett problem som behöver en teknisk lösning?
+            {question}
           </p>
           <Button
             size="xxl"
             asChild
             className="shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 mt-4 border-primary"
           >
-            <a href="#contact">Kontakta mig</a>
+            <a href="#contact">{ctaText}</a>
           </Button>
         </motion.div>
       </div>

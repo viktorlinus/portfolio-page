@@ -7,8 +7,33 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
+import { usePathname } from "next/navigation"
 
-const ContactForm = () => {
+interface ContactFormProps {
+  title?: string;
+  subtitle?: string;
+  namePlaceholder?: string;
+  emailPlaceholder?: string;
+  subjectPlaceholder?: string;
+  messagePlaceholder?: string;
+  submitText?: string;
+  sendingText?: string;
+  successMessage?: string;
+  errorMessage?: string;
+}
+
+const ContactForm = ({
+  title = "Kontakta Mig",
+  subtitle = "Har du ett projekt i åtanke eller vill du veta mer om mina tjänster? Skicka ett meddelande så återkommer jag så snart som möjligt.",
+  namePlaceholder = "Ditt namn",
+  emailPlaceholder = "din.email@exempel.se",
+  subjectPlaceholder = "Vad gäller ditt meddelande?",
+  messagePlaceholder = "Beskriv ditt ärende",
+  submitText = "Skicka Meddelande",
+  sendingText = "Skickar...",
+  successMessage = "Tack för ditt meddelande. Jag återkommer så snart som möjligt.",
+  errorMessage = "Det uppstod ett problem när meddelandet skulle skickas. Försök igen senare."
+}: ContactFormProps) => {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -17,6 +42,26 @@ const ContactForm = () => {
     subject: "",
     message: ""
   })
+  const pathname = usePathname();
+  const lang = pathname?.split('/')[1] || 'sv';
+  
+  // Translated form labels
+  const labels = {
+    sv: {
+      name: "Namn",
+      email: "E-post",
+      subject: "Ämne",
+      message: "Meddelande"
+    },
+    en: {
+      name: "Name",
+      email: "Email",
+      subject: "Subject",
+      message: "Message"
+    }
+  };
+  
+  const l = labels[lang === 'en' ? 'en' : 'sv'];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -43,7 +88,7 @@ const ContactForm = () => {
       if (response.ok) {
         toast({
           title: "Meddelande skickat!",
-          description: "Tack för ditt meddelande. Jag återkommer så snart som möjligt.",
+          description: successMessage,
           variant: "default",
         })
         setFormData({
@@ -58,7 +103,7 @@ const ContactForm = () => {
     } catch (error) {
       toast({
         title: "Något gick fel",
-        description: "Det uppstod ett problem när meddelandet skulle skickas. Försök igen senare.",
+        description: errorMessage,
         variant: "destructive",
       })
     } finally {
@@ -77,7 +122,7 @@ const ContactForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Kontakta Mig
+            {title}
           </motion.h2>
           <motion.p 
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -86,7 +131,7 @@ const ContactForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Har du ett projekt i åtanke eller vill du veta mer om mina tjänster? Skicka ett meddelande så återkommer jag så snart som möjligt.
+            {subtitle}
           </motion.p>
         </div>
 
@@ -99,11 +144,11 @@ const ContactForm = () => {
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Namn</Label>
+              <Label htmlFor="name">{l.name}</Label>
               <Input
                 id="name"
                 name="name"
-                placeholder="Ditt namn"
+                placeholder={namePlaceholder}
                 required
                 value={formData.name}
                 onChange={handleChange}
@@ -112,12 +157,12 @@ const ContactForm = () => {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="email">E-post</Label>
+              <Label htmlFor="email">{l.email}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="din.email@exempel.se"
+                placeholder={emailPlaceholder}
                 required
                 value={formData.email}
                 onChange={handleChange}
@@ -126,11 +171,11 @@ const ContactForm = () => {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="subject">Ämne</Label>
+              <Label htmlFor="subject">{l.subject}</Label>
               <Input
                 id="subject"
                 name="subject"
-                placeholder="Vad gäller ditt meddelande?"
+                placeholder={subjectPlaceholder}
                 required
                 value={formData.subject}
                 onChange={handleChange}
@@ -139,11 +184,11 @@ const ContactForm = () => {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="message">Meddelande</Label>
+              <Label htmlFor="message">{l.message}</Label>
               <Textarea
                 id="message"
                 name="message"
-                placeholder="Beskriv ditt ärende"
+                placeholder={messagePlaceholder}
                 rows={4}
                 required
                 value={formData.message}
@@ -158,7 +203,7 @@ const ContactForm = () => {
               className="w-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Skickar..." : "Skicka Meddelande"}
+              {isSubmitting ? sendingText : submitText}
             </Button>
           </form>
         </motion.div>

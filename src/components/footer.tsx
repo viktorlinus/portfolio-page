@@ -2,25 +2,38 @@
 
 import Link from "next/link"
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear()
+interface FooterProps {
+  aboutTitle?: string;
+  aboutText?: string;
+  contactTitle?: string;
+  location?: string;
+  socialTitle?: string;
+  copyright?: string;
+}
 
+const Footer = ({ 
+  aboutTitle = "Om Mig",
+  aboutText = "Jag är en utvecklare med passion för innovativa teknologiska lösningar som förenklar människors vardag.",
+  contactTitle = "Kontakt",
+  location = "Borås, Sverige",
+  socialTitle = "Sociala Medier",
+  copyright = "© 2025 Eken Consulting. Alla rättigheter förbehållna."
+}: FooterProps) => {
   return (
     <footer id="contact" className="bg-muted py-12">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Om Mig</h3>
+            <h3 className="text-xl font-bold mb-4">{aboutTitle}</h3>
             <p className="text-muted-foreground mb-4">
-              Jag är en utvecklare med passion för innovativa teknologiska lösningar 
-              som förenklar människors vardag.
+              {aboutText}
             </p>
           </div>
 
           {/* Contact Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Kontakt</h3>
+            <h3 className="text-xl font-bold mb-4">{contactTitle}</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center">
                 <svg
@@ -52,14 +65,14 @@ const Footer = () => {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>Borås, Sverige</span>
+                <span>{location}</span>
               </li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Sociala Medier</h3>
+            <h3 className="text-xl font-bold mb-4">{socialTitle}</h3>
             <div className="flex space-x-4">
               <a 
                 href="https://github.com/viktorlinus" 
@@ -106,7 +119,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-8 text-center text-muted-foreground">
-          <p>© {currentYear} Viktor. Alla rättigheter förbehållna.</p>
+          <p>{copyright}</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "I Build Your Ideas",
+    "subtitle": "Scalable, intelligent technical solutions for your business",
+    "cta": "Explore the possibilities",
+    "scrollText": "Scroll down"
+  },
+  "nav": {
+    "home": "Home",
+    "process": "My Process",
+    "services": "Services",
+    "projects": "Projects",
+    "testimonials": "References",
+    "contact": "Contact"
+  },
+  "process": {
+    "title": "From Idea to Reality",
+    "subtitle": "Do you have an idea you want to see grow? I help you make it a reality.",
+    "steps": [
+      {
+        "title": "Your Idea",
+        "description": "Everything starts with your vision. We discuss your goals, needs, and desires to shape the idea."
+      },
+      {
+        "title": "Development",
+        "description": "I transform the idea into code using modern technology that provides scalability and performance."
+      },
+      {
+        "title": "Result",
+        "description": "A finished solution that turns your idea into reality, focusing on user-friendliness and quality."
+      }
+    ],
+    "ctaText": "Tell me about your idea"
+  },
+  "services": {
+    "title": "My Specialties",
+    "subtitle": "With a background in modern web development, AI integration, and automation, I help you transform your ideas into scalable, intelligent solutions. My focus is on combining technical innovation with practical usability.",
+    "items": [
+      {
+        "title": "Web Applications",
+        "description": "Modern web applications built with React and Next.js"
+      },
+      {
+        "title": "Backend Systems",
+        "description": "Robust backend solutions with Node.js and databases"
+      },
+      {
+        "title": "Responsive Design",
+        "description": "User-friendly interfaces that work on all devices"
+      }
+    ],
+    "question": "Do you have an idea or a problem that needs a technical solution?",
+    "ctaText": "Contact me"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Here's a selection of technological solutions and tools I have developed.",
+    "viewProject": "More Information",
+    "technologies": "Technologies"
+  },
+  "testimonials": {
+    "title": "What Clients Say",
+    "subtitle": "Read what my clients and collaborators have to say about my projects."
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Do you have a project in mind or want to know more about my services? Send a message and I'll get back to you as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "subjectPlaceholder": "What is your message about?",
+    "message": "Message",
+    "messagePlaceholder": "Describe your inquiry",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent. I will get back to you as soon as possible.",
+    "error": "An error occurred. Please try again later."
+  },
+  "footer": {
+    "aboutTitle": "About Me",
+    "aboutText": "I am a developer passionate about innovative technological solutions that simplify people's everyday lives.",
+    "contactTitle": "Contact",
+    "location": "Borås, Sweden",
+    "socialTitle": "Social Media",
+    "copyright": "© 2025 Eken Consulting. All rights reserved."
+  }
+}

@@ -2,13 +2,29 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { testimonials } from "@/lib/testimonials-data"
+import { testimonials, getTestimonialData } from "@/lib/testimonials-data"
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card"
 import { AnimatedText } from "@/components/ui/animated-text"
+import { usePathname } from "next/navigation"
 
-const TestimonialsSection = () => {
+interface TestimonialsSectionProps {
+  title?: string;
+  subtitle?: string;
+}
+
+const TestimonialsSection = ({
+  title = "Vad kunder säger",
+  subtitle = "Läs vad mina kunder och samarbetspartners har att säga om mina projekt."
+}: TestimonialsSectionProps) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
+  const pathname = usePathname();
+  const lang = pathname?.split('/')[1] || 'sv';
+
+  // Get localized testimonials
+  const localizedTestimonials = testimonials.map(testimonial => 
+    getTestimonialData(testimonial, lang)
+  );
 
   // Funktion för att hantera manuell navigation
   const handleManualNavigation = (index: number) => {
@@ -31,11 +47,11 @@ const TestimonialsSection = () => {
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
           <AnimatedText
-            text="Vad kunder säger"
+            text={title}
             className="text-3xl md:text-4xl font-bold mb-4"
           />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Läs vad mina kunder och samarbetspartners har att säga om mina projekt.
+            {subtitle}
           </p>
         </div>
 
@@ -44,7 +60,7 @@ const TestimonialsSection = () => {
             className="flex transition-transform duration-1000 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
-            {testimonials.map((testimonial, index) => (
+            {localizedTestimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
                 className="w-full flex-shrink-0 px-4"

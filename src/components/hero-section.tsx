@@ -7,7 +7,19 @@ import { GlitchText } from "@/components/ui/glitch-text"
 import { FlowingBackground } from "@/components/ui/flowing-background"
 import { ChevronDown } from "lucide-react"
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  title?: string
+  subtitle?: string
+  cta?: string
+  scrollText?: string
+}
+
+const HeroSection = ({
+  title = "Jag Bygger Dina Idéer",
+  subtitle = "Skalbara, intelligenta tekniska lösningar för ditt företag",
+  cta = "Utforska möjligheterna",
+  scrollText = "Scrolla ner"
+}: HeroSectionProps) => {
   const scrollToIdea = () => {
     // Hitta IdeaToReality-sektionen
     const ideaSection = document.getElementById("idea-to-reality")
@@ -38,14 +50,14 @@ const HeroSection = () => {
         <div className="w-full max-w-5xl mx-auto text-center px-4 py-24 md:px-6">
           <div className="mb-8">
             <GlitchText 
-              text="Jag Bygger Dina Idéer" 
+              text={title} 
               className="text-5xl md:text-7xl font-bold tracking-tight"
             />
           </div>
           
           <div className="max-w-3xl mx-auto mb-10">
             <AnimatedText
-              text="Skalbara, intelligenta tekniska lösningar för ditt företag."
+              text={subtitle}
               className="text-xl md:text-2xl text-muted-foreground"
             />
           </div>
@@ -55,7 +67,7 @@ const HeroSection = () => {
             onClick={scrollToIdea}
             className="relative overflow-hidden group shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-primary"
           >
-            <span className="relative z-10">Utforska möjligheterna</span>
+            <span className="relative z-10">{cta}</span>
             <span className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
           </Button>
           
@@ -64,7 +76,7 @@ const HeroSection = () => {
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse cursor-pointer mt-16"
             onClick={scrollToIdea}
           >
-            <span className="text-sm text-muted-foreground mb-1">Scrolla ner</span>
+            <span className="text-sm text-muted-foreground mb-1">{scrollText}</span>
             <ChevronDown className="w-6 h-6 text-primary" />
           </div>
         </div>

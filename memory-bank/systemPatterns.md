@@ -58,6 +58,15 @@ The portfolio website follows a modern Next.js architecture with a focus on perf
 - **Component-Based Styling**: Styles closely tied to their components
 - **Responsive Design System**: Consistent breakpoints and design scaling
 
+### Internationalization Pattern
+- **Dynamic Routing**: Using [lang] parameter for language-specific routes
+- **Centralized Translations**: JSON files for each supported language
+- **Static + Server Rendering**: Pre-rendering for static content, server components for dynamic translations
+- **Middleware-based Detection**: Automatic language detection and redirection
+- **Component Adaptation**: Passing translated content to components via props
+- **URL Structure Preservation**: Maintaining same URL paths across languages
+- **SEO-Friendly Implementation**: hreflang tags, alternate URLs, and language-specific metadata
+
 ### Performance Patterns
 - **Image Optimization**: Using Next.js image optimization
 - **Code Splitting**: Loading only necessary JavaScript
@@ -94,6 +103,13 @@ The portfolio website follows a modern Next.js architecture with a focus on perf
 - Semantic HTML structure
 - Performance optimization
 - Sitemap generation
+
+### Internationalization Implementation
+- Language detection middleware
+- Translation file structure
+- Component adaptations for multilingual content
+- SEO optimizations for multiple languages
+- Language switcher UI component
 
 ### Portfolio Projects Display
 - Project card components
