@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ThemeToggle } from "./theme-toggle"
 import { LanguageSwitcher } from "./language-switcher"
 import { cn } from "@/lib/utils"
@@ -50,35 +51,64 @@ const Navbar = ({
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
-    }
+    // Throttle function to limit execution frequency
+    const throttle = (callback: () => void, limit: number) => {
+      let waiting = false;
+      return () => {
+        if (!waiting) {
+          callback();
+          waiting = true;
+          setTimeout(() => {
+            waiting = false;
+          }, limit);
+        }
+      };
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    // Update scroll state with throttling
+    const handleScroll = throttle(() => {
+      // Use transform: translateY(0) for better iOS performance
+      const scrolled = window.scrollY > 10;
+      if (scrolled !== isScrolled) {
+        setIsScrolled(scrolled);
+      }
+    }, 10); // Limit to max ~100 times per second
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isScrolled])
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 will-change-transform",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b shadow-sm py-2"
-          : "bg-transparent py-4"
+          ? "bg-background/95 backdrop-blur-md border-b shadow-sm py-2 transition-[background,padding] duration-300"
+          : "bg-transparent py-4 transition-[background,padding] duration-300"
       )}
+      style={{
+        // Force hardware acceleration
+        transform: 'translateZ(0)',
+        WebkitTransform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden'
+      }}
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link 
           href={`/${lang}`} 
-          className="text-2xl font-bold text-primary"
+          className="flex items-center gap-2"
         >
-          Eken Consulting
+          <Image
+            src="/logo-text.png"
+            alt="Eken Consulting"
+            width={160}
+            height={32}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

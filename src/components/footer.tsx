@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 interface FooterProps {
   aboutTitle?: string;
@@ -17,7 +18,7 @@ const Footer = ({
   contactTitle = "Kontakt",
   location = "Borås, Sverige",
   socialTitle = "Sociala Medier",
-  copyright = "© 2025 Eken Consulting. Alla rättigheter förbehållna."
+  copyright = " 2025 Eken Consulting. Alla rättigheter förbehållna."
 }: FooterProps) => {
   return (
     <footer id="contact" className="bg-muted py-12">
@@ -25,6 +26,14 @@ const Footer = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Column */}
           <div>
+            <Image
+              src="/logo1.png"
+              alt="Eken Consulting"
+              width={240}
+              height={48}
+              className="w-auto h-12 mb-4"
+              priority
+            />
             <h3 className="text-xl font-bold mb-4">{aboutTitle}</h3>
             <p className="text-muted-foreground mb-4">
               {aboutText}
@@ -119,6 +128,16 @@ const Footer = ({
         </div>
 
         <div className="border-t mt-12 pt-8 text-center text-muted-foreground">
+          <div className="flex justify-center items-center mb-4">
+            <Image
+              src="/logo-text.png"
+              alt="Eken Consulting"
+              width={160}
+              height={32}
+              className="w-auto h-8"
+              priority
+            />
+          </div>
           <p>{copyright}</p>
         </div>
       </div>

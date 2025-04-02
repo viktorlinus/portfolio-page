@@ -27,9 +27,9 @@ export async function generateMetadata({
       ? 'Scalable, intelligent technical solutions for your business' 
       : 'Skalbara, intelligenta tekniska lösningar för ditt företag',
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon.ico',
-      apple: '/favicon.ico',
+      icon: '/logos/logo-icon.png',
+      shortcut: '/logos/logo-icon.png',
+      apple: '/logos/logo-icon.png',
     },
     alternates: {
       canonical: `https://ekenconsulting.se/${params.lang}`,

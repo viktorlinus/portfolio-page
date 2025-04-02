@@ -37,7 +37,7 @@ const TestimonialsSection = ({
     if (autoplay) {
       const interval = setInterval(() => {
         setActiveIndex((current) => (current + 1) % testimonials.length)
-      }, 8000)
+      }, 16000)
       return () => clearInterval(interval)
     }
   }, [autoplay])
@@ -55,7 +55,7 @@ const TestimonialsSection = ({
           </p>
         </div>
 
-        <div className="relative overflow-hidden max-w-3xl mx-auto">
+        <div className="relative overflow-hidden w-full md:max-w-3xl mx-auto">
           <div 
             className="flex transition-transform duration-1000 ease-in-out"
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -63,10 +63,10 @@ const TestimonialsSection = ({
             {localizedTestimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className="w-full flex-shrink-0 px-4"
+                className="w-full flex-shrink-0 px-2 md:px-4"
               >
                 <CardContainer disableEffect={true}>
-                  <CardBody className="bg-card border rounded-xl p-8 shadow-md">
+                  <CardBody className="bg-card border rounded-xl p-5 md:p-8 shadow-md">
                     <div className="mb-4">
                       <CardItem translateZ={20}>
                         <div>
@@ -79,7 +79,7 @@ const TestimonialsSection = ({
                     </div>
                     
                     <CardItem translateZ={40}>
-                      <blockquote className="text-lg italic py-6">
+                      <blockquote className="text-base md:text-lg italic py-4 md:py-6">
                         "{testimonial.content}"
                       </blockquote>
                     </CardItem>
