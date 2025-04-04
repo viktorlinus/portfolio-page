@@ -106,7 +106,7 @@ const Navbar = ({
             alt="Eken Consulting"
             width={160}
             height={32}
-            className="h-8 w-auto"
+            className="h-16 w-auto" /* Doubled from h-8 to h-16 */
             priority
           />
         </Link>

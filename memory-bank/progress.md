@@ -78,7 +78,7 @@ Successfully implemented.
 - Demonstrated internationalization implementation skills
 
 ## Overall Status
-The project has been deployed and is now fully multilingual, supporting both Swedish (default) and English. The Memory Bank documentation system has been established to maintain context between development sessions.
+The project has been deployed and is now fully multilingual, supporting both Swedish (default) and English. The Memory Bank documentation system has been established to maintain context between development sessions. Recent work includes enhancing the logo presentation in the navbar and footer, with adjustments to sizes and layout structure to improve visual hierarchy and brand presence.
 
 ## Completed Components
 - Basic project setup with Next.js 14 (App Router)
@@ -90,7 +90,7 @@ The project has been deployed and is now fully multilingual, supporting both Swe
 - Project card and grid components with multi-language support
 - Project modal for detailed views with translations
 - Contact form component with translated labels
-- Footer component with custom logo
+- Footer component with custom logo and optimized layout (logo on its own row with three columns below)
 - Theme toggle functionality (light/dark mode)
 - Testimonials section with language support and optimized display
 - About/Services section with translated cards

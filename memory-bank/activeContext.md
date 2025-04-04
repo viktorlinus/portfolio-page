@@ -85,9 +85,11 @@ The IdeaToReality component has been enhanced with a visual flow representation:
 ## Recent Changes
 - Added custom logos to the project, integrating them into the UI:
   - Created logos directory in public folder to properly organize logo assets
-  - Added logo-icon and logo-text to the navbar for consistent branding
+  - Added logo-icon and logo-text to the navbar for consistent branding (logo in navbar doubled in size from h-8 to h-16)
   - Updated favicon to use the new logo icon for improved brand recognition in browser tabs
   - Added full logo to footer for visual consistency
+  - Restructured footer layout with logo on its own row above three equal columns (About Me, Contact, Social Media)
+  - Increased footer logo size to h-48 for better visibility
 - Created fundamental directory structure for i18n with [lang] dynamic route
 - Implemented middleware for automatic language detection and redirection
 - Created translation files (sv.json and en.json) for all site content

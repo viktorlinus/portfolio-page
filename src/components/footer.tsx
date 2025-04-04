@@ -23,23 +23,28 @@ const Footer = ({
   return (
     <footer id="contact" className="bg-muted py-12">
       <div className="container px-4 md:px-6 mx-auto">
+        {/* Logo alone in first row, left-aligned */}
+        <div className="flex justify-start mb-8">
+          <Image
+            src="/logo1.png"
+            alt="Eken Consulting"
+            width={240}
+            height={48}
+            className="w-auto h-48" /* Large logo image */
+            priority
+          />
+        </div>
+        
+        {/* All three columns in second row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Column */}
           <div>
-            <Image
-              src="/logo1.png"
-              alt="Eken Consulting"
-              width={240}
-              height={48}
-              className="w-auto h-12 mb-4"
-              priority
-            />
             <h3 className="text-xl font-bold mb-4">{aboutTitle}</h3>
             <p className="text-muted-foreground mb-4">
               {aboutText}
             </p>
           </div>
-
+          
           {/* Contact Column */}
           <div>
             <h3 className="text-xl font-bold mb-4">{contactTitle}</h3>
@@ -134,7 +139,7 @@ const Footer = ({
               alt="Eken Consulting"
               width={160}
               height={32}
-              className="w-auto h-8"
+              className="w-auto h-12"
               priority
             />
           </div>
