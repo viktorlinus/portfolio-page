@@ -78,7 +78,7 @@ Successfully implemented.
 - Demonstrated internationalization implementation skills
 
 ## Overall Status
-The project has been deployed and is now fully multilingual, supporting both Swedish (default) and English. The Memory Bank documentation system has been established to maintain context between development sessions. Recent work includes enhancing the logo presentation in the navbar and footer, with adjustments to sizes and layout structure to improve visual hierarchy and brand presence.
+The project has been deployed and is now fully multilingual, supporting both Swedish (default) and English. The Memory Bank documentation system has been established to maintain context between development sessions. Recent work includes enhancing the logo presentation in the navbar and footer, with adjustments to sizes and layout structure to improve visual hierarchy and brand presence. The website domain has been updated from eken-consulting.netlify.app to the custom domain eken-consulting.com, with all necessary updates to sitemap.xml, robots.txt, and metadata references.
 
 ## Completed Components
 - Basic project setup with Next.js 14 (App Router)
@@ -103,6 +103,7 @@ The project has been deployed and is now fully multilingual, supporting both Swe
 - SEO configuration (robots.txt, metadata, custom favicon, sitemap.xml)
 - Internationalization (i18n) implementation for Swedish and English
 - Custom logo integration in navbar, footer, and favicon
+- Domain migration from eken-consulting.netlify.app to eken-consulting.com
 
 ## In Progress
 - Content enhancement for projects and skills

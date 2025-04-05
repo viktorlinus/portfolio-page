@@ -32,10 +32,10 @@ export async function generateMetadata({
       apple: '/logos/logo-icon.png',
     },
     alternates: {
-      canonical: `https://ekenconsulting.se/${params.lang}`,
+      canonical: `https://eken-consulting.com/${params.lang}`,
       languages: {
-        'sv-SE': `https://ekenconsulting.se/sv`,
-        'en-US': `https://ekenconsulting.se/en`,
+        'sv-SE': `https://eken-consulting.com/sv`,
+        'en-US': `https://eken-consulting.com/en`,
       },
     }
   }

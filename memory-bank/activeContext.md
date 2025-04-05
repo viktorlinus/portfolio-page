@@ -103,11 +103,12 @@ The IdeaToReality component has been enhanced with a visual flow representation:
 - Fixed missing translations in service cards and project components
 
 ## Next Steps
-1. **Analytics Integration**: Consider adding web analytics for tracking visitors
-2. **Additional Content**: Continue enhancing project content now that the multilingual framework is in place
-3. **Fine-tuning**: Ensure consistent design and behavior across both language versions
-4. **Performance Optimization**: Check and optimize page loading times
-5. **Further Testing**: Test the site across more devices and browsers
+1. **Domain Transition**: Domain has been changed from eken-consulting.netlify.app to eken-consulting.com
+2. **Analytics Integration**: Consider adding web analytics for tracking visitors
+3. **Additional Content**: Continue enhancing project content now that the multilingual framework is in place
+4. **Fine-tuning**: Ensure consistent design and behavior across both language versions
+5. **Performance Optimization**: Check and optimize page loading times
+6. **Further Testing**: Test the site across more devices and browsers
 
 ## Active Decisions
 - Maintaining Swedish as the default language
