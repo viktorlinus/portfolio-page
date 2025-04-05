@@ -9,14 +9,14 @@ export function LanguageSwitcher() {
   const router = useRouter()
 
   // Extract current language from pathname
-  const currentLang = pathname.split('/')[1]
+  const currentLang = pathname?.split('/')[1] || 'sv'
   
   // Switch to other language
   const switchLanguage = () => {
     const newLang = currentLang === 'en' ? 'sv' : 'en'
     
     // Get the rest of the path (if any)
-    const restOfPath = pathname.split('/').slice(2).join('/')
+    const restOfPath = pathname?.split('/').slice(2).join('/') || ''
     
     // Navigate to the same page in the other language
     router.push(`/${newLang}${restOfPath ? `/${restOfPath}` : ''}`)

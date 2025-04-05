@@ -88,8 +88,10 @@ The IdeaToReality component has been enhanced with a visual flow representation:
 - Fixed sitemap.xml content-type issues:
   - Implementerade Next.js inbyggda sitemap-funktion via src/app/sitemap.ts
   - Använder MetadataRoute.Sitemap som automatiskt hanterar korrekt XML-format och Content-Type
-  - Skapat alternates för språkversioner enligt hreflang-standard
-  - Tog bort manuella route-handlers som tidigare försökte lösa problemet
+  - Tog bort alternates-egenskapen från sitemap-filen på grund av typfel 
+  - Tog bort konflikterande filer i pages-katalogen (Pages Router) för att förhindra build-fel
+  - Behöll robots.txt route handler i App Router
+  - Tog bort även API-routen som försökte läsa den gamla sitemap.xml-filen från public-mappen
 - Added custom logos to the project, integrating them into the UI:
   - Created logos directory in public folder to properly organize logo assets
   - Added logo-icon and logo-text to the navbar for consistent branding (logo in navbar doubled in size from h-8 to h-16)
