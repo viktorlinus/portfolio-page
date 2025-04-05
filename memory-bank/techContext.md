@@ -10,6 +10,7 @@
 
 ## Core Technologies
 - **Next.js**: React framework for production-ready websites with server-side rendering and static site generation
+  - Uses App Router with dedicated route handlers for sitemap.xml and robots.txt
 - **TypeScript**: For type safety and improved development experience
 - **Tailwind CSS**: Utility-first CSS framework for styling
 - **React**: JavaScript library for building user interfaces
@@ -74,14 +75,18 @@ From examining package.json:
 
 ## Build & Deployment
 - Next.js standard build process
-- Specific deployment platform to be determined (likely Vercel for Next.js optimization)
+- Deployed to Netlify with custom domain 'eken-consulting.com'
+- Specific Netlify configuration:
+  - Uses @netlify/plugin-nextjs for Next.js optimization
+  - Custom redirects to ensure sitemap.xml and robots.txt are directly accessible
 
 ## SEO Considerations
 - Server-side rendering for improved SEO
 - Proper metadata management
 - Semantic HTML structure
 - Performance optimization for core web vitals
-- Sitemap generation
+- Built-in Next.js sitemap generation using MetadataRoute.Sitemap
+- Well-configured robots.txt pointing to sitemap.xml
 
 ## Performance Targets
 - Excellent Lighthouse scores (90+ for all categories)

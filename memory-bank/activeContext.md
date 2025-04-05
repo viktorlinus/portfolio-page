@@ -83,6 +83,13 @@ The IdeaToReality component has been enhanced with a visual flow representation:
    - Optimized spacing between elements for improved mobile experience
 
 ## Recent Changes
+- Updated website to use custom domain 'eken-consulting.com' instead of 'eken-consulting.netlify.app'
+- Updated sitemap.xml, robots.txt, and metadata references to reflect the new domain
+- Fixed sitemap.xml content-type issues:
+  - Implementerade Next.js inbyggda sitemap-funktion via src/app/sitemap.ts
+  - Använder MetadataRoute.Sitemap som automatiskt hanterar korrekt XML-format och Content-Type
+  - Skapat alternates för språkversioner enligt hreflang-standard
+  - Tog bort manuella route-handlers som tidigare försökte lösa problemet
 - Added custom logos to the project, integrating them into the UI:
   - Created logos directory in public folder to properly organize logo assets
   - Added logo-icon and logo-text to the navbar for consistent branding (logo in navbar doubled in size from h-8 to h-16)
@@ -120,6 +127,7 @@ The IdeaToReality component has been enhanced with a visual flow representation:
 - **Component Adaptations**: Components receive translated content via props
 - **URL Structure**: Consistent URL patterns across language versions
 - **SEO Focus**: Proper metadata and markup for multilingual content
+- **Static File Access**: Sitemap.xml and robots.txt configured to bypass language middleware
 
 ## Recent Learnings
 - Next.js App Router provides excellent built-in support for internationalization

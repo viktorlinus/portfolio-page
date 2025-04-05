@@ -104,6 +104,7 @@ The project has been deployed and is now fully multilingual, supporting both Swe
 - Internationalization (i18n) implementation for Swedish and English
 - Custom logo integration in navbar, footer, and favicon
 - Domain migration from eken-consulting.netlify.app to eken-consulting.com
+- Fixed sitemap.xml display with Next.js built-in sitemap generation (MetadataRoute.Sitemap)
 
 ## In Progress
 - Content enhancement for projects and skills

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://eken-consulting.com/sitemap.xml
