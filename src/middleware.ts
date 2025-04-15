@@ -12,8 +12,12 @@ export function middleware(request: NextRequest) {
     locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
   
-  // If no locale in path, detect from browser or use default
-  if (!pathnameHasLocale) {
+  // Detect if request is from a search engine crawler
+  const userAgent = request.headers.get('user-agent') || ''
+  const isBot = /Googlebot|bingbot|Baiduspider|DuckDuckBot|Slurp|Yandex|facebookexternalhit/i.test(userAgent)
+  
+  // If no locale in path and not a bot, perform normal redirection
+  if (!pathnameHasLocale && !isBot) {
     // Get preferred language from headers
     const acceptLanguage = request.headers.get('accept-language') || ''
     
@@ -26,6 +30,14 @@ export function middleware(request: NextRequest) {
     // Redirect to the same pathname with locale prefix
     return NextResponse.redirect(
       new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
+    )
+  }
+  
+  // For bots without locale, serve default locale content without redirection
+  if (!pathnameHasLocale && isBot) {
+    // Rewrite to the default locale (Swedish) without changing URL
+    return NextResponse.rewrite(
+      new URL(`/sv${pathname === '/' ? '' : pathname}`, request.url)
     )
   }
   

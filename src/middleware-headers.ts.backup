@@ -1,0 +1,19 @@
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+// This middleware only adds headers with path information
+export function middleware(request: NextRequest) {
+  const response = NextResponse.next()
+  
+  // Add the current path as a header that can be accessed by the metadata function
+  response.headers.set('x-pathname', request.nextUrl.pathname)
+  
+  return response
+}
+
+export const config = {
+  matcher: [
+    // Apply to all routes
+    '/:path*',
+  ],
+}
